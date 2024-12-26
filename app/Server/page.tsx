@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Link from 'next/link';
+import Button from '@/components/Button';
 import Footer from '@/components/Footer';
 interface IBook {
     id: number;
@@ -14,22 +14,19 @@ const Server =async () => {
     console.log(parsedResponse)
   return (
     <div className='  bg-black'>
-             <h1 className='text-center font-bold font-serif text-7xl text-white py-14'>Server Side Data Fetching</h1>
-      <div className='grid grid-cols-3 gap-4 w-full h-[600px] pl-3'>
+             <h1 className="text-center font-bold font-serif text-4xl md:text-5xl lg:text-7xl text-white py-8 lg:py-14">Server Side Data Fetching</h1>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 md:px-8 lg:px-12'>
          {parsedResponse.map((data,index)=>
-          <div key={index} className= 'border border-black w-[400px] h-[200px] p-9 bg-gradient-to-r from-blue-500 to-green-600  transform transition duration-300 hover:translate-x-4 hover:translate-y-2 space-y-4'>
+          <div key={index} className= 'border border-black w-full max-w-md mx-auto h-auto p-6 bg-gradient-to-r from-blue-500 to-green-600 transform transition duration-300 hover:translate-x-2 hover:translate-y-2 space-y-4 rounded-lg shadow-lg'>
 
            
-            <p className='font-bold text-2xl font-mono'>{data.name}</p>
+            <p className='font-bold text-xl lg:text-2xl font-mono'>{data.name}</p>
             <p><span className='font-semibold font-mono'>type:</span> {data.type}</p>
             <p><span className='font-semibold font-mono'>available: </span> {`${data.available}`}</p>
           </div>
         )}
     </div>
-    <div className='flex justify-center items-center pb-4'>
-    <button type='button' className='w-[300px] h-[50px] bg-gradient-to-r from-blue-500 to-green-600 shadow-lime-300 shadow-md hover:scale-95 rounded-md font-mono font-semibold text-2xl' ><Link href={"./"}>Back to Home Page</Link></button>
-
-    </div>
+    <Button/>
   <Footer/>
     </div>
   )
